@@ -1,0 +1,9 @@
+[replica-C] RECV Increment(counter=likes:post-42, delta=1) L=4 (received L=3)
+[replica-C] APPLY counter=likes:post-42 -> 1 L=5
+[replica-C] SEND IncrementReply(new_value=1) L=6
+[replica-C] RECV Increment(counter=likes:post-42, delta=1) L=7 (received L=3)
+[replica-C] APPLY counter=likes:post-42 -> 2 L=8
+[replica-C] SEND IncrementReply(new_value=2) L=9
+[replica-C] RECV Increment(counter=likes:post-42, delta=1) L=10 (received L=3)
+[replica-C] APPLY counter=likes:post-42 -> 3 L=11
+[replica-C] SEND IncrementReply(new_value=3) L=12

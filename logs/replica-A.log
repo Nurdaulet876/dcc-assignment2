@@ -28,3 +28,6 @@
 [replica-A] SEND GetReply(value=2, found=True) L=23
 [replica-A] RECV Get(counter=x) L=26 (received L=25)
 [replica-A] SEND GetReply(value=2, found=True) L=27
+[replica-A] RECV Increment(counter=likes:post-42, delta=1) L=2 (received L=1)
+[replica-A] APPLY counter=likes:post-42 -> 1 L=3
+[replica-A] SEND IncrementReply(new_value=1) L=4
