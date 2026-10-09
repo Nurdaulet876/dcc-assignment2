@@ -7,17 +7,17 @@ import counter_pb2
 import counter_pb2_grpc
 
 RETRYABLE = (grpc.StatusCode.DEADLINE_EXCEEDED, grpc.StatusCode.UNAVAILABLE)
-BACKOFFS = [0.2, 0.4, 0.8]   # максимум 3 ретрая
+BACKOFFS = [0.2, 0.4, 0.8]
 TIMEOUT = 2.0
 
 
 def increment(stub, counter_id, delta, key=None):
-    key = key or str(uuid.uuid4())      # ключ создаётся ОДИН раз, до первой попытки
+    key = key or str(uuid.uuid4())
     request = counter_pb2.IncrementRequest(
         counter_id=counter_id, delta=delta, idempotency_key=key)
     for attempt in range(len(BACKOFFS) + 1):
         try:
-            return stub.Increment(request, timeout=TIMEOUT)   # тот же request = тот же ключ
+            return stub.Increment(request, timeout=TIMEOUT)
         except grpc.RpcError as e:
             if e.code() not in RETRYABLE or attempt == len(BACKOFFS):
                 raise
