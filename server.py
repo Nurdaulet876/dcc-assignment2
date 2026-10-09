@@ -6,46 +6,69 @@ from concurrent import futures
 import grpc
 import counter_pb2
 import counter_pb2_grpc
+from clocks import LamportClock, EventLog
 
 
 class CounterServicer(counter_pb2_grpc.CounterServicer):
-    def __init__(self, delay_ms=0):
+    def __init__(self, name="replica-A", delay_ms=0):
         self._lock = threading.Lock()
         self._values = {}   # counter_id -> int
         self._seen = {}     # idempotency_key -> (counter_id, resulting value)
         self._delay_ms = delay_ms
+        self.clock = LamportClock()
+        self.log = EventLog(name, self.clock)
 
     def Increment(self, request, context):
+        self.log.recv_event(
+            f"RECV Increment(counter={request.counter_id}, delta={request.delta})",
+            request.lamport_time)
+
         if self._delay_ms:
-            time.sleep(self._delay_ms / 1000)  
+            time.sleep(self._delay_ms / 1000)
+
         with self._lock:
             if request.idempotency_key in self._seen:
-                _, stored_value = self._seen[request.idempotency_key]
-                return counter_pb2.IncrementReply(new_value=stored_value, was_duplicate=True)
-            new_value = self._values.get(request.counter_id, 0) + request.delta
-            self._values[request.counter_id] = new_value
-            self._seen[request.idempotency_key] = (request.counter_id, new_value)
-            return counter_pb2.IncrementReply(new_value=new_value, was_duplicate=False)
+                _, value = self._seen[request.idempotency_key]
+                duplicate = True
+                self.log.local_event(
+                    f"DUPLICATE key={request.idempotency_key[:8]} ignored, no APPLY")
+            else:
+                value = self._values.get(request.counter_id, 0) + request.delta
+                self._values[request.counter_id] = value
+                self._seen[request.idempotency_key] = (request.counter_id, value)
+                duplicate = False
+                self.log.local_event(f"APPLY counter={request.counter_id} -> {value}")
+
+        L = self.log.local_event(f"SEND IncrementReply(new_value={value})")
+        return counter_pb2.IncrementReply(
+            new_value=value, was_duplicate=duplicate, lamport_time=L)
 
     def Get(self, request, context):
+        self.log.recv_event(f"RECV Get(counter={request.counter_id})",
+                            request.lamport_time)
         with self._lock:
-            if request.counter_id in self._values:
-                return counter_pb2.GetReply(value=self._values[request.counter_id], found=True)
-            return counter_pb2.GetReply(value=0, found=False)
+            found = request.counter_id in self._values
+            value = self._values.get(request.counter_id, 0)
+        L = self.log.local_event(f"SEND GetReply(value={value}, found={found})")
+        return counter_pb2.GetReply(value=value, found=found, lamport_time=L)
 
 
-def serve(port, delay_ms=0):
+def start_server(port=0, delay_ms=0, name="replica-A"):
+    """Start the server and return (server, actual_port). port=0 -> ephemeral port."""
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=8))
-    counter_pb2_grpc.add_CounterServicer_to_server(CounterServicer(delay_ms), server)
-    server.add_insecure_port(f"[::]:{port}")
+    counter_pb2_grpc.add_CounterServicer_to_server(
+        CounterServicer(name, delay_ms), server)
+    actual_port = server.add_insecure_port(f"[::]:{port}")
     server.start()
-    print(f"replica listening on {port}")
-    server.wait_for_termination()
+    return server, actual_port
 
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--port", type=int, default=50051)
     p.add_argument("--delay-ms", type=int, default=0)
+    p.add_argument("--name", default="replica-A")
     args = p.parse_args()
-    serve(args.port, args.delay_ms)
+    srv, port = start_server(args.port, args.delay_ms, args.name)
+    print(f"[{args.name}] listening on {port}", flush=True)
+    srv.wait_for_termination()
