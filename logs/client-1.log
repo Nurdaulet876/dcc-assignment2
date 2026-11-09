@@ -2,3 +2,121 @@
 [client-1] RECV IncrementReply(new_value=1) L=5 (received L=4)
 [client-1] SEND Increment(counter=x, delta=1) L=6
 [client-1] RECV IncrementReply(new_value=2) L=10 (received L=9)
+[client-1] SEND Increment(counter=likes:post-42, delta=5) L=1
+[client-1] RECV IncrementReply(new_value=5) L=5 (received L=4)
+[client-1] SEND Get(counter=likes:post-42) L=1
+[client-1] RECV GetReply(value=5, found=True) L=7 (received L=6)
+[client-1] SEND Increment(counter=likes:post-42, delta=5) L=1
+[client-1] RECV IncrementReply(new_value=10) L=10 (received L=9)
+[client-1] SEND Increment(counter=likes:post-42, delta=5) L=1
+[client-1] RECV IncrementReply(new_value=10) L=13 (received L=12)
+[client-1] SEND Increment(counter=x, delta=1) L=1
+[client-1] RECV IncrementReply(new_value=1) L=5 (received L=4)
+[client-1] SEND Increment(counter=x, delta=1) L=6
+[client-1] RECV IncrementReply(new_value=2) L=10 (received L=9)
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=1
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=2
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=3
+[client-1] RECV IncrementReply(new_value=1) L=6 (received L=5)
+[client-1] RECV IncrementReply(new_value=1) L=7 (received L=4)
+[client-1] RECV IncrementReply(new_value=1) L=8 (received L=6)
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=1
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=2
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=3
+[client-1] RECV IncrementReply(new_value=2) L=8 (received L=7)
+[client-1] RECV IncrementReply(new_value=2) L=9 (received L=8)
+[client-1] RECV IncrementReply(new_value=2) L=10 (received L=9)
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=1
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=2
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=3
+[client-1] RECV IncrementReply(new_value=2) L=13 (received L=12)
+[client-1] RECV IncrementReply(new_value=2) L=14 (received L=10)
+[client-1] RECV IncrementReply(new_value=2) L=15 (received L=11)
+[client-1] SEND Get(counter=likes:post-42) L=1
+[client-1] RECV GetReply(value=2, found=True) L=13 (received L=12)
+[client-1] SEND Get(counter=likes:post-42) L=1
+[client-1] RECV GetReply(value=2, found=True) L=15 (received L=14)
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=1
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=2
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=3
+[client-1] RECV IncrementReply(new_value=3) L=18 (received L=17)
+[client-1] RECV IncrementReply(new_value=1) L=19 (received L=6)
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=20
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=21
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=22
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=1
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=2
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=3
+[client-1] RECV IncrementReply(new_value=4) L=21 (received L=20)
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=22
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=23
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=24
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=25
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=26
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=27
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=1
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=2
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=3
+[client-1] RECV IncrementReply(new_value=1) L=7 (received L=6)
+[client-1] RECV IncrementReply(new_value=1) L=8 (received L=5)
+[client-1] RECV IncrementReply(new_value=1) L=9 (received L=4)
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=1
+[client-1] RECV IncrementReply(new_value=2) L=8 (received L=7)
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=1
+[client-1] RECV IncrementReply(new_value=3) L=11 (received L=10)
+[client-1] SEND Get(counter=likes:post-42) L=1
+[client-1] RECV GetReply(value=3, found=True) L=13 (received L=12)
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=1
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=2
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=3
+[client-1] RECV IncrementReply(new_value=4) L=16 (received L=15)
+[client-1] RECV IncrementReply(new_value=1) L=17 (received L=5)
+[client-1] RECV IncrementReply(new_value=1) L=18 (received L=6)
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=1
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=2
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=3
+[client-1] RECV IncrementReply(new_value=2) L=10 (received L=9)
+[client-1] RECV IncrementReply(new_value=5) L=19 (received L=18)
+[client-1] RECV IncrementReply(new_value=2) L=20 (received L=8)
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=1
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=2
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=3
+[client-1] RECV IncrementReply(new_value=6) L=22 (received L=21)
+[client-1] RECV IncrementReply(new_value=3) L=23 (received L=11)
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=24
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=25
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=26
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=1
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=2
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=3
+[client-1] RECV IncrementReply(new_value=7) L=25 (received L=24)
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=26
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=27
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=28
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=29
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=30
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=31
+[client-1] SEND Get(counter=likes:post-42) L=1
+[client-1] RECV GetReply(value=7, found=True) L=27 (received L=26)
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=1
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=2
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=3
+[client-1] RECV IncrementReply(new_value=8) L=30 (received L=29)
+[client-1] RECV IncrementReply(new_value=1) L=31 (received L=5)
+[client-1] RECV IncrementReply(new_value=1) L=32 (received L=6)
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=1
+[client-1] RECV IncrementReply(new_value=9) L=33 (received L=32)
+[client-1] SEND Get(counter=likes:post-42) L=1
+[client-1] RECV GetReply(value=9, found=True) L=35 (received L=34)
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=1
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=2
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=3
+[client-1] RECV IncrementReply(new_value=10) L=38 (received L=37)
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=39
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=40
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=41
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=42
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=43
+[client-1] SEND Increment(counter=likes:post-42, delta=1) L=44
+[client-1] SEND Get(counter=likes:post-42) L=1
+[client-1] RECV GetReply(value=10, found=True) L=40 (received L=39)

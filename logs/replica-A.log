@@ -16,3 +16,89 @@
 [replica-A] SEND GetReply(value=2, found=True) L=23
 [replica-A] RECV Get(counter=x) L=26 (received L=25)
 [replica-A] SEND GetReply(value=2, found=True) L=27
+[replica-A] RECV Increment(counter=likes:post-42, delta=5) L=2 (received L=1)
+[replica-A] APPLY counter=likes:post-42 -> 5 L=3
+[replica-A] SEND IncrementReply(new_value=5) L=4
+[replica-A] RECV Get(counter=likes:post-42) L=5 (received L=1)
+[replica-A] SEND GetReply(value=5, found=True) L=6
+[replica-A] RECV Increment(counter=likes:post-42, delta=5) L=7 (received L=1)
+[replica-A] APPLY counter=likes:post-42 -> 10 L=8
+[replica-A] SEND IncrementReply(new_value=10) L=9
+[replica-A] RECV Increment(counter=likes:post-42, delta=5) L=10 (received L=1)
+[replica-A] DUPLICATE key=abc ignored, no APPLY L=11
+[replica-A] SEND IncrementReply(new_value=10) L=12
+[replica-A] RECV Increment(counter=x, delta=1) L=2 (received L=1)
+[replica-A] APPLY counter=x -> 1 L=3
+[replica-A] SEND IncrementReply(new_value=1) L=4
+[replica-A] RECV Increment(counter=x, delta=1) L=7 (received L=6)
+[replica-A] APPLY counter=x -> 2 L=8
+[replica-A] SEND IncrementReply(new_value=2) L=9
+[replica-A] RECV Increment(counter=y, delta=1) L=10 (received L=1)
+[replica-A] APPLY counter=y -> 1 L=11
+[replica-A] SEND IncrementReply(new_value=1) L=12
+[replica-A] RECV Increment(counter=y, delta=1) L=15 (received L=14)
+[replica-A] APPLY counter=y -> 2 L=16
+[replica-A] SEND IncrementReply(new_value=2) L=17
+[replica-A] RECV Get(counter=x) L=18 (received L=1)
+[replica-A] SEND GetReply(value=2, found=True) L=19
+[replica-A] RECV Get(counter=x) L=22 (received L=21)
+[replica-A] SEND GetReply(value=2, found=True) L=23
+[replica-A] RECV Get(counter=x) L=26 (received L=25)
+[replica-A] SEND GetReply(value=2, found=True) L=27
+[replica-A] RECV Increment(counter=likes:post-42, delta=1) L=2 (received L=1)
+[replica-A] APPLY counter=likes:post-42 -> 1 L=3
+[replica-A] SEND IncrementReply(new_value=1) L=4
+[replica-A] RECV Increment(counter=likes:post-42, delta=1) L=5 (received L=1)
+[replica-A] APPLY counter=likes:post-42 -> 2 L=6
+[replica-A] SEND IncrementReply(new_value=2) L=7
+[replica-A] RECV Increment(counter=likes:post-42, delta=1) L=8 (received L=1)
+[replica-A] DUPLICATE key=demo-key ignored, no APPLY L=9
+[replica-A] SEND IncrementReply(new_value=2) L=10
+[replica-A] RECV Get(counter=likes:post-42) L=11 (received L=1)
+[replica-A] SEND GetReply(value=2, found=True) L=12
+[replica-A] RECV Get(counter=likes:post-42) L=13 (received L=1)
+[replica-A] SEND GetReply(value=2, found=True) L=14
+[replica-A] RECV Increment(counter=likes:post-42, delta=1) L=15 (received L=1)
+[replica-A] APPLY counter=likes:post-42 -> 3 L=16
+[replica-A] SEND IncrementReply(new_value=3) L=17
+[replica-A] RECV Increment(counter=likes:post-42, delta=1) L=18 (received L=1)
+[replica-A] APPLY counter=likes:post-42 -> 4 L=19
+[replica-A] SEND IncrementReply(new_value=4) L=20
+[replica-A] RECV Increment(counter=likes:post-42, delta=1) L=2 (received L=1)
+[replica-A] APPLY counter=likes:post-42 -> 1 L=3
+[replica-A] SEND IncrementReply(new_value=1) L=4
+[replica-A] RECV Increment(counter=likes:post-42, delta=1) L=5 (received L=1)
+[replica-A] APPLY counter=likes:post-42 -> 2 L=6
+[replica-A] SEND IncrementReply(new_value=2) L=7
+[replica-A] RECV Increment(counter=likes:post-42, delta=1) L=8 (received L=1)
+[replica-A] APPLY counter=likes:post-42 -> 3 L=9
+[replica-A] SEND IncrementReply(new_value=3) L=10
+[replica-A] RECV Get(counter=likes:post-42) L=11 (received L=1)
+[replica-A] SEND GetReply(value=3, found=True) L=12
+[replica-A] RECV Increment(counter=likes:post-42, delta=1) L=13 (received L=1)
+[replica-A] APPLY counter=likes:post-42 -> 4 L=14
+[replica-A] SEND IncrementReply(new_value=4) L=15
+[replica-A] RECV Increment(counter=likes:post-42, delta=1) L=16 (received L=1)
+[replica-A] APPLY counter=likes:post-42 -> 5 L=17
+[replica-A] SEND IncrementReply(new_value=5) L=18
+[replica-A] RECV Increment(counter=likes:post-42, delta=1) L=19 (received L=1)
+[replica-A] APPLY counter=likes:post-42 -> 6 L=20
+[replica-A] SEND IncrementReply(new_value=6) L=21
+[replica-A] RECV Increment(counter=likes:post-42, delta=1) L=22 (received L=1)
+[replica-A] APPLY counter=likes:post-42 -> 7 L=23
+[replica-A] SEND IncrementReply(new_value=7) L=24
+[replica-A] RECV Get(counter=likes:post-42) L=25 (received L=1)
+[replica-A] SEND GetReply(value=7, found=True) L=26
+[replica-A] RECV Increment(counter=likes:post-42, delta=1) L=27 (received L=1)
+[replica-A] APPLY counter=likes:post-42 -> 8 L=28
+[replica-A] SEND IncrementReply(new_value=8) L=29
+[replica-A] RECV Increment(counter=likes:post-42, delta=1) L=30 (received L=1)
+[replica-A] APPLY counter=likes:post-42 -> 9 L=31
+[replica-A] SEND IncrementReply(new_value=9) L=32
+[replica-A] RECV Get(counter=likes:post-42) L=33 (received L=1)
+[replica-A] SEND GetReply(value=9, found=True) L=34
+[replica-A] RECV Increment(counter=likes:post-42, delta=1) L=35 (received L=1)
+[replica-A] APPLY counter=likes:post-42 -> 10 L=36
+[replica-A] SEND IncrementReply(new_value=10) L=37
+[replica-A] RECV Get(counter=likes:post-42) L=38 (received L=1)
+[replica-A] SEND GetReply(value=10, found=True) L=39
