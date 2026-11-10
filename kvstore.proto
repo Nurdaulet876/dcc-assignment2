@@ -2,9 +2,6 @@ syntax = "proto3";
 
 package kvstore;
 
-// ---------------------------------------------------------------------------
-// Part 1: interface required by the lab (Task 1) -- unchanged.
-// ---------------------------------------------------------------------------
 
 enum ReadConsistency {
   LINEARIZABLE = 0;    // Must hit Leaseholder / Quorum
@@ -35,7 +32,6 @@ message PutRequest {
   string idempotency_key = 3;
   WriteStrategy strategy = 4;
   uint64 timestamp = 5;       // 0 = let the coordinator assign one (microseconds)
-  // --- extension for the quorum-tuning experiment (R + W > N) ---
   uint32 write_quorum = 6;    // W for QUORUM_CP; 0 = majority (N/2 + 1)
 }
 
@@ -45,9 +41,6 @@ message PutReply {
   string error_message = 3;
 }
 
-// ---------------------------------------------------------------------------
-// Part 2: internal replica-to-replica messages (replication, anti-entropy).
-// ---------------------------------------------------------------------------
 
 enum ReplicatePhase {
   PHASE_PREPARE = 0;    // CP: "can you accept this write?" (promise, not visible yet)
