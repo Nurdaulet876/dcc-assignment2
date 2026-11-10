@@ -164,8 +164,8 @@ def cluster():
 @pytest.fixture(scope="module", autouse=True)
 def dump_observations():
     yield
-    os.makedirs(os.path.join(ROOT, "results"), exist_ok=True)
-    with open(os.path.join(ROOT, "results", "test_observations.json"), "w") as f:
+    os.makedirs(os.path.join(ROOT, "../results"), exist_ok=True)
+    with open(os.path.join(ROOT, "../results", "test_observations.json"), "w") as f:
         json.dump(OBS, f, indent=2)
 
 

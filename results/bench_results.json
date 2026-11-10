@@ -1,0 +1,181 @@
+{
+  "iterations": 1000,
+  "warmup": 50,
+  "runs": [
+    {
+      "healthy": {
+        "linearizable": {
+          "median_ms": 0.9070500382222235,
+          "p95_ms": 1.6179000958800316,
+          "availability_pct": 100.0,
+          "ok": 1000
+        },
+        "follower_stale": {
+          "median_ms": 0.41879998752847314,
+          "p95_ms": 0.5322999786585569,
+          "availability_pct": 100.0,
+          "ok": 1000
+        }
+      },
+      "leaseholder_down_0s": {
+        "linearizable": {
+          "median_ms": null,
+          "p95_ms": null,
+          "availability_pct": 0.0,
+          "ok": 0
+        },
+        "follower_stale": {
+          "median_ms": 0.4613000201061368,
+          "p95_ms": 0.5846000276505947,
+          "availability_pct": 100.0,
+          "ok": 1000
+        }
+      },
+      "leaseholder_down_6s": {
+        "linearizable": {
+          "median_ms": null,
+          "p95_ms": null,
+          "availability_pct": 0.0,
+          "ok": 0
+        },
+        "follower_stale": {
+          "median_ms": null,
+          "p95_ms": null,
+          "availability_pct": 0.0,
+          "ok": 0
+        }
+      },
+      "healthy_wan": {
+        "linearizable": {
+          "median_ms": 14.517400064505637,
+          "p95_ms": 15.419699950143695,
+          "availability_pct": 100.0,
+          "ok": 1000
+        },
+        "follower_stale": {
+          "median_ms": 1.518749981187284,
+          "p95_ms": 1.8803999992087483,
+          "availability_pct": 100.0,
+          "ok": 1000
+        }
+      }
+    },
+    {
+      "healthy": {
+        "linearizable": {
+          "median_ms": 1.7263999907299876,
+          "p95_ms": 3.596099908463657,
+          "availability_pct": 100.0,
+          "ok": 1000
+        },
+        "follower_stale": {
+          "median_ms": 1.590950007084757,
+          "p95_ms": 2.002099994570017,
+          "availability_pct": 100.0,
+          "ok": 1000
+        }
+      },
+      "leaseholder_down_0s": {
+        "linearizable": {
+          "median_ms": null,
+          "p95_ms": null,
+          "availability_pct": 0.0,
+          "ok": 0
+        },
+        "follower_stale": {
+          "median_ms": 1.4883499243296683,
+          "p95_ms": 1.9882000051438808,
+          "availability_pct": 100.0,
+          "ok": 1000
+        }
+      },
+      "leaseholder_down_6s": {
+        "linearizable": {
+          "median_ms": null,
+          "p95_ms": null,
+          "availability_pct": 0.0,
+          "ok": 0
+        },
+        "follower_stale": {
+          "median_ms": null,
+          "p95_ms": null,
+          "availability_pct": 0.0,
+          "ok": 0
+        }
+      },
+      "healthy_wan": {
+        "linearizable": {
+          "median_ms": 14.197750017046928,
+          "p95_ms": 15.13750001322478,
+          "availability_pct": 100.0,
+          "ok": 1000
+        },
+        "follower_stale": {
+          "median_ms": 0.3821499994955957,
+          "p95_ms": 0.6594000151380897,
+          "availability_pct": 100.0,
+          "ok": 1000
+        }
+      }
+    },
+    {
+      "healthy": {
+        "linearizable": {
+          "median_ms": 0.7107499986886978,
+          "p95_ms": 0.9588999673724174,
+          "availability_pct": 100.0,
+          "ok": 1000
+        },
+        "follower_stale": {
+          "median_ms": 0.34695002250373363,
+          "p95_ms": 0.4646000452339649,
+          "availability_pct": 100.0,
+          "ok": 1000
+        }
+      },
+      "leaseholder_down_0s": {
+        "linearizable": {
+          "median_ms": null,
+          "p95_ms": null,
+          "availability_pct": 0.0,
+          "ok": 0
+        },
+        "follower_stale": {
+          "median_ms": 1.5951000386849046,
+          "p95_ms": 2.1160999312996864,
+          "availability_pct": 100.0,
+          "ok": 1000
+        }
+      },
+      "leaseholder_down_6s": {
+        "linearizable": {
+          "median_ms": null,
+          "p95_ms": null,
+          "availability_pct": 0.0,
+          "ok": 0
+        },
+        "follower_stale": {
+          "median_ms": null,
+          "p95_ms": null,
+          "availability_pct": 0.0,
+          "ok": 0
+        }
+      },
+      "healthy_wan": {
+        "linearizable": {
+          "median_ms": 14.523150050081313,
+          "p95_ms": 15.328899957239628,
+          "availability_pct": 100.0,
+          "ok": 1000
+        },
+        "follower_stale": {
+          "median_ms": 1.3496500323526561,
+          "p95_ms": 1.844799960963428,
+          "availability_pct": 100.0,
+          "ok": 1000
+        }
+      }
+    }
+  ],
+  "wan_rtt_ms": 10
+}
